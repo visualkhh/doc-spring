@@ -20,6 +20,7 @@ dependencies {
 //    compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
     compile('org.springframework.boot:spring-boot-starter-webflux')
     compile("org.springframework.boot:spring-boot-starter-web:2.0.0.M6")
+    compile 'io.netty:netty-all:4.1.5.Final'
 //    compile 'org.springframework:spring-context:5.0.1.RELEASE'
     compile (group: 'org.projectlombok', name: 'lombok', version: '1.16.18')
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
