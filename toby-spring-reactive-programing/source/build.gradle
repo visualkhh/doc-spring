@@ -2,14 +2,28 @@ group 'com.khh'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 sourceCompatibility = 1.8
+
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.M6'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
 
 repositories {
     mavenCentral()
-    maven {
-        url 'https://repo.spring.io/libs-milestone'
-    }
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
@@ -17,15 +31,16 @@ dependencies {
     compile (group: 'org.reactivestreams', name: 'reactive-streams-tck', version: '1.0.1')
     compile "io.projectreactor:reactor-core:3.1.1.RELEASE"
     testCompile("io.projectreactor:reactor-test:3.1.1.RELEASE")
-//    compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
     compile('org.springframework.boot:spring-boot-starter-webflux')
-    compile("org.springframework.boot:spring-boot-starter-web:2.0.0.M6")
+    compileOnly('org.projectlombok:lombok')
+
     compile 'io.netty:netty-all:4.1.5.Final'
 //    compile 'org.springframework:spring-context:5.0.1.RELEASE'
-    compile (group: 'org.projectlombok', name: 'lombok', version: '1.16.18')
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-
+//    compile 'org.projectreactor:reactor-spring:1.0.1.RELEASE'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('io.projectreactor:reactor-test')
 }

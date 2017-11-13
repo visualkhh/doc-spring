@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter;
+//import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter;
 
 import java.util.Queue;
 import java.util.concurrent.Callable;
@@ -22,6 +22,7 @@ public class AnsyncApplication {
 	@RestController
 	public static class MyController{
 
+		/*
 
 		@GetMapping("/emitter")
 		public ResponseBodyEmitter   emitter() throws InterruptedException {
@@ -40,7 +41,7 @@ public class AnsyncApplication {
 			return emitter;
 		}
 
-
+		*/
 
 
 
